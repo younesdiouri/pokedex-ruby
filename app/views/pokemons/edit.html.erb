@@ -1,0 +1,8 @@
+<h1>Modifier un pokemon</h1>
+
+<%= render 'form', pokemon: @pokemon %>
+
+<p>
+  <%= link_to 'Afficher', @pokemon, class: 'btn btn-info' %>
+  <%= link_to 'Retour à la liste des pokemons', pokemons_path, class: 'btn btn-default' %>
+</p>

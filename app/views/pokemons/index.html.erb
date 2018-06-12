@@ -1,0 +1,44 @@
+<h1>Liste des pokemons</h1>
+
+<% if @pokemons.any? %>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Nom</th>
+      <th>Type</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @pokemons.each do |pokemon| %>
+      <tr>
+        <td><%= pokemon.id %></td>
+        <td><%= pokemon.name %></td>
+        <td>
+          <% if pokemon.type.nil? %>
+          &empty;
+          <% else %>
+          <%= type_badge pokemon.type.name, pokemon.type.color %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to 'Afficher', pokemon, class: 'btn btn-info' %>
+          <%= link_to 'Modifier', edit_pokemon_path(pokemon), class: 'btn btn-warning' %>
+          <%= link_to 'Supprimer', pokemon, method: :delete,
+                      data: {
+                          confirm: 'Êtes-vous sûr(e) de vouloir supprimer ce Pokemon ?'
+                      },
+                      class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% else %>
+
+  <p>Vous n'avez pas attrapé de Pokemon :(</p>
+<% end %>
+
+<p>
+  <%= link_to 'Ajouter un pokemon', new_pokemon_path, class: 'btn btn-success' %>
+</p>

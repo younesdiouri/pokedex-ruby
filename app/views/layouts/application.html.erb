@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pokedex</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+<div class="container">
+  <br>
+  <p>
+    <%= link_to 'Pokemons', pokemons_path, class: 'btn btn-default' %>
+    <%= link_to 'Types', types_path, class: 'btn btn-default' %>
+  </p>
+  <br>
+  <%= yield %>
+</div>
+</body>
+</html>
